@@ -1,4 +1,4 @@
-import {isValidInteger} from './userInputConditionals.js';
+import {isValidInteger} from './isInteger.js';
 
 test('input number is valid integer ', () => {
     let result1 = isValidInteger(5);
@@ -15,4 +15,7 @@ test('input number is valid integer ', () => {
 
     let result5 = isValidInteger("");
     expect(result5).toBeFalsy();
+
+    let result6 = isValidInteger("01");
+    expect(result6).toBeFalsy();
 });

@@ -19,7 +19,7 @@ export function dividedby3(integer01,integer02) {
 }
 
 
-import {isValidInteger} from '../common_modules/userInputConditionals.js';
+import {isValidInteger} from '../common_modules/isInteger.js';
 // import { log } from 'console';
 //檢查輸入整數一是否為整數
 function getAnswer(q) {

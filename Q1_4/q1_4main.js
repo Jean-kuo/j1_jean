@@ -2,7 +2,7 @@
 /*輸入 n 印出 `1+2-3+4-5+6...n` 的算式與總和 */
 
 import {calculationSUM, calculationFormula} from "./1_4module.js";
-import {isValidInteger} from "../common_modules/userInputConditionals.js";
+import {isValidInteger} from "../common_modules/isInteger.js";
 
 import readline from'readline';
 const read=readline.createInterface({

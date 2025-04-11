@@ -4,7 +4,7 @@
 //重點糾錯:ab全域變數宣告,function執行順序,a=Number()寫法注意
 
 import {dividedby3} from "./1_2module.js"
-import {isValidInteger} from "../common_modules/userInputConditionals.js";
+import {isValidInteger} from "../common_modules/isInteger.js";
 import readline from 'readline';
 
 const read=readline.createInterface({

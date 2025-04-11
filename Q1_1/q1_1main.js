@@ -9,7 +9,7 @@
 //const readline=require('readline');屬node.js commonJS寫法
 
 import {isThereZero} from "./1_1module.js";
-import {isValidInteger} from "../common_modules/userInputConditionals.js";
+import {isValidInteger} from "../common_modules/isInteger.js";
 
 import  readline from 'readline';
 const read = readline.createInterface({

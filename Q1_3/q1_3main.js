@@ -3,7 +3,7 @@
 試用「[比較運算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Comparison)」
 // 寫一程式，讓使用者自行輸入年齡，並判斷門票價錢。 */
 
-import {isValidInteger} from "../common_modules/userInputConditionals.js";
+import {isValidInteger} from "../common_modules/isInteger.js";
 import {calculateTicketPrice} from "./1_3module.js";
 
 import readline from 'readline';

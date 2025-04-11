@@ -1,6 +1,6 @@
 import {dividedby3, test, readLineInteger1, readLineInteger2} from './1_2module.js';
 //import {dividedby3, readLineInteger1, readLineInteger2} from './1_2module.js';
-import {isValidInteger} from '../common_modules/userInputConditionals.js';
+import {isValidInteger} from '../common_modules/isInteger.js';
 
 // import readline from 'readline';
 // const read=readline.createInterface({
