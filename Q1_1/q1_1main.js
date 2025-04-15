@@ -8,7 +8,7 @@
 //!0=True
 //const readline=require('readline');屬node.js commonJS寫法
 
-import {isThereZero} from "./1_1module.js";
+import {isMaxPeople300, isZero} from "./1_1module.js";
 import {isValidInteger} from "../common_modules/isInteger.js";
 
 import  readline from 'readline';
@@ -17,14 +17,14 @@ const read = readline.createInterface({
     output : process.stdout,
 });
 
-read.question( "輸入今日到場人數:" , function (movieAttendees) {
-    if (isValidInteger (movieAttendees)) {
-        if (Number(movieAttendees) > 300){
+read.question( "輸入今日到場人數:" , function (movieAudience) {
+    if (isValidInteger (movieAudience)) {
+        if (isMaxPeople300(movieAudience)){
             console.log("人數超過電影院容納量");
             read.close();
         }
         else{
-            const result = isThereZero(movieAttendees);
+            const result = isZero(movieAudience) ? "照常電影播放" : "今日暫停播放電影";
             console.log(result);
             read.close();
         }
