@@ -10,21 +10,42 @@
 
 import {isMaxPeople300, isZero} from "./1_1module.js";
 import {isValidInteger} from "../common_modules/isInteger.js";
-
+import validator from 'validator';
 import  readline from 'readline';
 const read = readline.createInterface({
     input : process.stdin,
     output : process.stdout,
 });
 
+
+// read.question( "輸入今日到場人數:" , function (movieAudience) {
+//     if (isValidInteger (movieAudience)) {
+//         if (isMaxPeople300(movieAudience)){
+//             console.log("人數超過電影院容納量");
+//             read.close();
+//         }
+//         else{
+//             const result = isZero(movieAudience) ? "照常電影播放" : "今日暫停播放電影";
+//             console.log(result);
+//             read.close();
+//         }
+//     }
+//     else{
+//         console.log("請輸入正確數字");
+//         read.close();
+//     }
+// });
+function shouldPauseMovie(movieAudience) {
+    validator.isInt(movieAudience, {min:1, max:300});
+} 
 read.question( "輸入今日到場人數:" , function (movieAudience) {
-    if (isValidInteger (movieAudience)) {
-        if (isMaxPeople300(movieAudience)){
-            console.log("人數超過電影院容納量");
+    if (isValidInteger(movieAudience)){
+        if (shouldPauseMovie(movieAudience)){
+            console.log("照常電影播放");
             read.close();
         }
         else{
-            const result = isZero(movieAudience) ? "照常電影播放" : "今日暫停播放電影";
+            const result = movieAudience > 300 ? "人數超過電影院容納量" : "今日暫停播放電影";
             console.log(result);
             read.close();
         }
@@ -33,4 +54,6 @@ read.question( "輸入今日到場人數:" , function (movieAudience) {
         console.log("請輸入正確數字");
         read.close();
     }
-});
+    
+    
+})
