@@ -39,21 +39,29 @@ function shouldPauseMovie(movieAudience) {
     validator.isInt(movieAudience, {min:1, max:300});
 } 
 read.question( "輸入今日到場人數:" , function (movieAudience) {
-    if (isValidInteger(movieAudience)){
-        if (shouldPauseMovie(movieAudience)){
-            console.log("照常電影播放");
-            read.close();
-        }
-        else{
-            const result = movieAudience > 300 ? "人數超過電影院容納量" : "今日暫停播放電影";
-            console.log(result);
-            read.close();
-        }
-    }
-    else{
-        console.log("請輸入正確數字");
-        read.close();
-    }
-    
-    
+    shouldOpenMovie(movieAudience);
+    read.close();
 })
+
+
+function shouldOpenMovie(movieAudience){
+    let movieStatusMessage = {
+        zero : console.log("今日暫停播放電影"),
+        one : console.log("照常電影播放"),
+        second : console.log("人數超過電影院容納量"),
+        third : console.log("請輸入正確數字")
+    };
+
+    if (! isValidInteger(movieAudience)){
+        movieStatusMessage.third;
+    }
+    else if (! Number(movieAudience)){
+        movieStatusMessage["zero"];
+    }
+    else if (1 <= movieAudience <= 300){
+        movieStatusMessage.one;
+    }
+    else if (movieAudience > 300){
+        movieStatusMessage.second;
+    };
+}
