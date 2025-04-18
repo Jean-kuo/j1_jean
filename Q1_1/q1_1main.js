@@ -8,9 +8,8 @@
 //!0=True
 //const readline=require('readline');屬node.js commonJS寫法
 
-import {isMaxPeople300, isZero} from "./1_1module.js";
-import {isValidInteger} from "../common_modules/isInteger.js";
-import validator from 'validator';
+import {isMaxPeople300, isZero, shouldOpenMovie} from "./1_1module.js";
+// import {isValidInteger} from "../common_modules/isInteger.js";
 import  readline from 'readline';
 const read = readline.createInterface({
     input : process.stdin,
@@ -35,33 +34,35 @@ const read = readline.createInterface({
 //         read.close();
 //     }
 // });
-function shouldPauseMovie(movieAudience) {
-    validator.isInt(movieAudience, {min:1, max:300});
-} 
+
+
 read.question( "輸入今日到場人數:" , function (movieAudience) {
     shouldOpenMovie(movieAudience);
     read.close();
 })
 
 
-function shouldOpenMovie(movieAudience){
-    let movieStatusMessage = {
-        zero : console.log("今日暫停播放電影"),
-        one : console.log("照常電影播放"),
-        second : console.log("人數超過電影院容納量"),
-        third : console.log("請輸入正確數字")
-    };
+// function shouldOpenMovie(movieAudience){
+    
+//     let movieStatusMessage = {
+//         zero : () => console.log("今日暫停播放電影") ,
+//         one : () => console.log("照常電影播放"),
+//         second : () => console.log("人數超過電影院容納量"),
+//         third : () => console.log("請輸入正確數字")
+//     };
 
-    if (! isValidInteger(movieAudience)){
-        movieStatusMessage.third;
-    }
-    else if (! Number(movieAudience)){
-        movieStatusMessage["zero"];
-    }
-    else if (1 <= movieAudience <= 300){
-        movieStatusMessage.one;
-    }
-    else if (movieAudience > 300){
-        movieStatusMessage.second;
-    };
-}
+//     if (! isValidInteger(movieAudience)){
+//         movieStatusMessage.third();
+//     }
+//     else if (! Number(movieAudience)){
+//         movieStatusMessage.zero();
+//     }
+//     else if ((1 <= movieAudience) && (movieAudience <= 300)){
+//         movieStatusMessage.one();
+//     }
+//     else if (movieAudience > 300){
+//         movieStatusMessage.second();
+//     };
+
+    
+// }
