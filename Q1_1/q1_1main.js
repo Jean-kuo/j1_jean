@@ -8,7 +8,7 @@
 //!0=True
 //const readline=require('readline');屬node.js commonJS寫法
 
-import {isMaxPeople300, isZero, shouldOpenMovie} from "./1_1module.js";
+import {shouldOpenMovie} from "./1_1module.js";
 // import {isValidInteger} from "../common_modules/isInteger.js";
 import  readline from 'readline';
 const read = readline.createInterface({
@@ -17,52 +17,11 @@ const read = readline.createInterface({
 });
 
 
-// read.question( "輸入今日到場人數:" , function (movieAudience) {
-//     if (isValidInteger (movieAudience)) {
-//         if (isMaxPeople300(movieAudience)){
-//             console.log("人數超過電影院容納量");
-//             read.close();
-//         }
-//         else{
-//             const result = isZero(movieAudience) ? "照常電影播放" : "今日暫停播放電影";
-//             console.log(result);
-//             read.close();
-//         }
-//     }
-//     else{
-//         console.log("請輸入正確數字");
-//         read.close();
-//     }
-// });
-
-
 read.question( "輸入今日到場人數:" , function (movieAudience) {
-    shouldOpenMovie(movieAudience);
+    let movieMessage = shouldOpenMovie(movieAudience);
+    console.log(movieMessage);
     read.close();
 })
 
 
-// function shouldOpenMovie(movieAudience){
-    
-//     let movieStatusMessage = {
-//         zero : () => console.log("今日暫停播放電影") ,
-//         one : () => console.log("照常電影播放"),
-//         second : () => console.log("人數超過電影院容納量"),
-//         third : () => console.log("請輸入正確數字")
-//     };
 
-//     if (! isValidInteger(movieAudience)){
-//         movieStatusMessage.third();
-//     }
-//     else if (! Number(movieAudience)){
-//         movieStatusMessage.zero();
-//     }
-//     else if ((1 <= movieAudience) && (movieAudience <= 300)){
-//         movieStatusMessage.one();
-//     }
-//     else if (movieAudience > 300){
-//         movieStatusMessage.second();
-//     };
-
-    
-// }
