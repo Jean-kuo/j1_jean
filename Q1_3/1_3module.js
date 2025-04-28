@@ -1,15 +1,21 @@
-let amusementParkTicket = 400;
-let concessionTicket = amusementParkTicket/2;
+// let amusementParkTicket = {};
+// amusementParkTicket.originPrice = 400;
+// amusementParkTicket.concessionTicket = amusementParkTicket.originPrice/2;
 
 export function calculateTicketPrice(age){
+    const originTicketPrice = 400;
+
+    let amusementParkTicket = {
+        originPrice : originTicketPrice,
+        concessionPrice : originTicketPrice/2,
+    }
     let resultPrice;//宣告變數
-    if ((Number(age) <= 6) || (Number(age) >= 65)){
-        // resolve("票價優惠"+price+"元");
-        //resultPrice = console.log(`票價優惠${price}元`);目標是把resultPrice返回給Promise,非給控制台輸出
-        resultPrice = `您的資格票價優惠為${concessionTicket}元`
+    if ((age <= 6) || (age >= 65)){
+
+        resultPrice = `您符合優待票資格,票價優惠為${amusementParkTicket.concessionPrice}元`;
     }
     else{
-        resultPrice = `一般票價為${amusementParkTicket}元`
+        resultPrice = `您的票價為${amusementParkTicket.originPrice}元`;
     }
     return resultPrice;
 }
