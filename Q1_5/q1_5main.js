@@ -3,7 +3,7 @@
 (n最小為 4, 只會出現偶數)*/
 
 import {isValidInteger} from "../common_modules/isInteger.js";
-import {isValueNaEVENnumber, checkValueN, umleven} from "./1_5module.js";
+import {checkValueN, umleven} from "./1_5module.js";
 
 import readline from 'readline';
 const read=readline.createInterface({
@@ -14,11 +14,16 @@ const read=readline.createInterface({
 console.log("求算 (2*4 + 4*6 + 6*8...+(n-2)*n) 總和為多少?");
 
 read.question("輸入n值：", function(n) {
-    let m = checkValueN(n);
-    let result = umleven(m);
+  if (Number(checkValueN(n))){
+    let result = umleven(checkValueN(n));
     console.log(result);
     read.close();
-  })
+  }
+  else{
+    console.log(checkValueN(n));
+    read.close();
+  }  
+})
 
 // //修改ing
 // async function getValueN() {

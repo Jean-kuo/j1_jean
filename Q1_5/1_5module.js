@@ -1,11 +1,5 @@
 import {isValidInteger} from "../common_modules/isInteger.js";
 
-//判斷輸入n值為n>=4 且 n為偶數  
-export function isValueNaEVENnumber(valueN){
-    const resultValueN = (valueN >= 4) && (valueN % 2 == 0) ? true : false;
-    return resultValueN;
-}
-
 //判斷輸入n值為n>=4
 export function isValueOver4(valueN){
     let resultOver4 = (valueN >= 4) ? true : false;
@@ -19,7 +13,8 @@ export function isNumberEven(valueN){
 
 //合一
 export function checkValueN(valueN){
-    if ( ! isValidInteger(valueN)) return "輸入數值非整數";
+    //let n = valueN;
+    if ( ! isValidInteger(valueN)) return "輸入數值非正整數";
     if ( ! isValueOver4(valueN)) return "輸入數值小於4";
     if ( ! isNumberEven(valueN)) return "輸入數值非偶數";
     
