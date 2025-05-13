@@ -6,17 +6,37 @@
 // });
 
 
-//兩個整數分別除以3,顯示餘式相同/不同
-export function dividedby3(integer01,integer02) {
-    let divider = 3; //方便做修正
-    let divideResult;
-    if ((integer01 %= divider) == (integer02 %= divider)){
-        return divideResult = ("餘式相同");
+// //兩個整數分別除以3,顯示餘式相同/不同
+// export function areRemaindersEqual(integer01,integer02) {
+//     let divider = 3; //方便做修正
+//     let divideResult;
+//     if ((integer01 %= divider) == (integer02 %= divider)){
+//         return divideResult = ("餘式相同");
+//     }
+//     else{
+//         return divideResult = ("餘式不同");
+//     };
+// }
+
+//物件寫法
+export function areRemainderEqual(integer01,integer02){
+    let number01 = integer01;
+    let number02 = integer02;
+    let divisionPair = {
+        divisor : 3,
+        dividend01 : integer01,
+        dividend02 : integer02,
+        remainder01 : number01 %= divisionPair.divisor,
+        remainder02 : number02 %= divisionPair.divisor
     }
-    else{
-        return divideResult = ("餘式不同");
-    };
+    let divideResult = (divisionPair.remainder01 === divisionPair.remainder02) ? "餘式相同" : "餘式不同";
+    return divideResult;
 }
+
+
+
+
+
 
 
 import {isValidInteger} from '../common_modules/isInteger.js';
@@ -31,21 +51,7 @@ function getAnswer(q) {
 
 };
 
-//code view修改版
-// export async function readLineInteger1() {
-//     const str= "輸入整數一"
-//     const answer = await getAnswer(str);
-
-//     if (isValidInteger(answer)){
-//         console.log('1')
-//         return answer;
-//     }
-//     else{
-//         console.log('not init')
-//         return readLineInteger1(str);
-        
-//     }
-// }
+//檢查輸入整數一是否為整數
 export function readLineInteger1() {
     return new Promise ((resolve, reject) => {
         read.question("輸入整數一:",  function(integer01){
@@ -83,3 +89,21 @@ export function readLineInteger2() {
 export function test() {
     console.log("test")
 }
+
+
+
+//code view修改版
+// export async function readLineInteger1() {
+//     const str= "輸入整數一"
+//     const answer = await getAnswer(str);
+
+//     if (isValidInteger(answer)){
+//         console.log('1')
+//         return answer;
+//     }
+//     else{
+//         console.log('not init')
+//         return readLineInteger1(str);
+        
+//     }
+// }
