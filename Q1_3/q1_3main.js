@@ -12,19 +12,84 @@ const read = readline.createInterface({
     output : process.stdout,
 });
 
-function inputAgeGetTicketPrice(){
-    return new Promise((resolve) => {
-        read.question("請輸入年齡:", function(age){
-            if (isValidInteger(age)) {
-                const resultPrice = calculateTicketPrice(age);
-                resolve (resultPrice);
-                read.close();
-            }
-            else{
-                console.log("請輸入正確的數字");
-                read.close();
-            }    
-        });
-    });
-}
-inputAgeGetTicketPrice().then ((resultPrice) => {console.log(resultPrice)});
+
+//一般
+read.question("請輸入年齡：", function(age){
+    if (isValidInteger(age)) {
+        let resultPrice = calculateTicketPrice(age);
+        console.log(resultPrice);
+        read.close();
+    }
+    else{
+        console.log("年齡請輸入正確的正整數");
+        read.close();
+    }
+})
+
+
+
+// //callback寫法
+// function getTicketPrice(callback){
+
+//     read.question("請輸入年齡:", function(age){
+//         if (isValidInteger(age)) {
+//             let resultPrice = calculateTicketPrice(age);
+//             callback (resultPrice);
+//             read.close();
+//         }
+//         else{
+//             callback("年齡請輸入正確的正整數");
+//             read.close();
+//         }    
+//     });
+
+// }
+// getTicketPrice(console.log);
+
+
+// //promise寫法
+// function getTicketPrice(){
+//     return new Promise((resolve, reject) => {
+//         read.question("請輸入年齡:", function(age){
+//             let resultPrice;
+//             if (isValidInteger(age)) {
+//                 resultPrice = calculateTicketPrice(age);
+//                 resolve (resultPrice);
+//                 read.close();
+//             }
+//             else{
+//                 resultPrice = "年齡請輸入正確的正整數";
+//                 reject(resultPrice)
+//                 read.close();
+//             }    
+//         });
+//     });
+// }
+// getTicketPrice()
+// .then ((resultPrice) => {console.log(resultPrice)})
+// .catch((resultPrice) => {console.log(resultPrice)});
+
+
+
+
+// //async/await作法
+
+// async function getTicketPrice(){
+//     try{
+//         await read.question("請輸入年齡：", function(age){
+//             if (isValidInteger(age)) {
+//                 let resultPrice = calculateTicketPrice(age);
+//                 console.log(resultPrice);
+//                 read.close();
+//             }
+//             else{
+//                 console.log("年齡請輸入正確的正整數");
+//                 read.close();
+//             }
+//         })
+//     }
+//     catch(error){
+//         console.log("error");
+//     }
+// }
+// getTicketPrice();
