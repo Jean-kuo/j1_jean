@@ -1,7 +1,7 @@
 
 /*輸入 n 印出 `1+2-3+4-5+6...n` 的算式與總和 */
 
-import {calculationSunPower, calculationFormula3, calculationFormula2} from "./1_4module.js";
+import {calculationSumPower, calculationFormula3, calculationFormula} from "./1_4module.js";
 import {isValidInteger} from "../common_modules/isInteger.js";
 
 import readline from'readline';
@@ -14,14 +14,14 @@ read.question("輸入n值:",function (inputN) {
     if (isValidInteger(inputN)) {
         let valueN = Number(inputN);
         
-        let arrayFormula = calculationFormula2(valueN)
+        let arrayFormula = calculationFormula(valueN)
         
         console.log(arrayFormula.join(""));
 
-        let sunPower = calculationSunPower(valueN);
-        let sunRecur = calculationFormula3(valueN);
+        let sunPower = calculationSumPower(valueN);
+       // let sunRecur = calculationFormula3(valueN);
         console.log(sunPower);
-        console.log(sunRecur);
+        //console.log(sunRecur);
 
         read.close();
     }
