@@ -6,7 +6,9 @@
 //問題1.輸出名字中單數位置的字母
 //問題2.陣列的單數?還是人類的單數?
 
-let name = [];
+import {getSplitName} from './1_6module';
+
+
 
 const readline = require( 'readline' );
 const read = readline.createInterface({
@@ -38,20 +40,8 @@ q1.question("輸入第一個名字:", function (input1) {
     
 });
 
-module.exports = {getSplitName};
 
 
-//另一個寫法 填入1~4可求出第1~4個名字單數
-function getSplitName (a) {
-    let splitX = name[a].split('')
-    let arrayX = []
-    for (var i = 0; i <= (splitX.length); i++){
-        if (i % 2 == 0){
-            arrayX.push(splitX[i]);
-        };
-    };
-    console.log(`第 ${a+1} 個名字字母單數輸出: ${arrayX.join("")} `);
-}
 
 
 
@@ -93,3 +83,19 @@ function getSplitName (a) {
 //     let b = name.shift(3);
 //     //return shiftA, shiftB; //javascript不能回傳一個值以上,此處只會回傳最後的shiftB
 //     return [a, b];//可用陣列回傳兩個值以上
+
+
+
+
+
+// //另一個寫法 填入1~4可求出第1~4個名字單數
+// function getSplitName (a) {
+//     let splitX = name[a].split('')
+//     let arrayX = []
+//     for (var i = 0; i <= (splitX.length); i++){
+//         if (i % 2 == 0){
+//             arrayX.push(splitX[i]);
+//         };
+//     };
+//     console.log(`第 ${a+1} 個名字字母單數輸出: ${arrayX.join("")} `);
+// }
