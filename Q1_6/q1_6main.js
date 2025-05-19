@@ -17,30 +17,8 @@ const read = readline.createInterface({
 
 let name = [];
 
-var q1 = read;
-var q2 = read;
-var q3 = read;
-var q4 = read;
 
-// q1.question("輸入第一個名字:", function (input1) {
-//     name.push(input1);
-//     q2.question("輸入第二個名字:", function (input2){
-//         name.push(input2);
-//         q3.question("輸入第三個名字:", function (input3) {
-//             name.push(input3);
-//             q4.question("輸入第四個名字:", function (input4) {
-//                 name.push(input4);
-//                 console.log("name陣列:"+name);
-//                 getSplitName(0);//第一個名字
-//                 getSplitName(2);//第三個名字
-//                 //splitName(name);
-//                 read.close();
-//             });
-//         });
-//     });
-    
-// });
-function userInput(){
+function userInput(query){
     return new Promise(resolve => {
         read.question(query, answer => {
             resolve(answer)
@@ -49,32 +27,28 @@ function userInput(){
 }
 async function pushName(){
     let number = 1;
-    while (number >= 4){
-        let inputName = await userInput(`輸入第${number}個名字 `);
+    while (number <= 4){
+        let inputName = await userInput(`輸入第${number}個名字: `);
         name.push(inputName);
-        console.log(name);
         number+=1;
     };
     read.close();
     return name;
 }
-pushName();
-console.log(name);
-
-// async function pushName(){
-    
-//     let number = 1;
-//     while (number >= 4){
-//          await read.question(`輸入第${number}個名字 `, function(inputName){
-//              name.push(inputName);
-//              console.log(name);
-//              return number+=1;
-//     })}
+// //pushName()此為async非同步函式
+// pushName().then(name => {
 //     console.log(name);
-//     return name;
-// }
+// });
 
-// pushName();
+//另一種async寫法
+(async () => {
+    const nameList = await pushName();
+    console.log(name);
+})();
+
+
+
+
 
 
 
