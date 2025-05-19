@@ -8,7 +8,6 @@
 
 import {getSplitName} from './1_6module.js';
 
-let name = [];
 
 import  readline from 'readline';
 const read = readline.createInterface({
@@ -16,6 +15,7 @@ const read = readline.createInterface({
     output : process.stdout,
 });
 
+let name = [];
 
 var q1 = read;
 var q2 = read;
@@ -40,21 +40,41 @@ var q4 = read;
 //     });
     
 // });
+function userInput(){
+    return new Promise(resolve => {
+        read.question(query, answer => {
+            resolve(answer)
+        });
+    });
+}
 async function pushName(){
-    
     let number = 1;
     while (number >= 4){
-        await read.question(`輸入第${number}個名字 `, function(inputName){
-            name.push(inputName);
-            console.log(name);
-            return number+=1;
-        })
-    }
-    console.log(name);
+        let inputName = await userInput(`輸入第${number}個名字 `);
+        name.push(inputName);
+        console.log(name);
+        number+=1;
+    };
+    read.close();
     return name;
 }
-
 pushName();
+console.log(name);
+
+// async function pushName(){
+    
+//     let number = 1;
+//     while (number >= 4){
+//          await read.question(`輸入第${number}個名字 `, function(inputName){
+//              name.push(inputName);
+//              console.log(name);
+//              return number+=1;
+//     })}
+//     console.log(name);
+//     return name;
+// }
+
+// pushName();
 
 
 
