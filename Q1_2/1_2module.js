@@ -7,7 +7,7 @@
 
 
 // //兩個整數分別除以3,顯示餘式相同/不同
-// export function areRemaindersEqual(integer01,integer02) {
+// export function areRemainderEqual(integer01,integer02) {
 //     let divider = 3; //方便做修正
 //     let divideResult;
 //     if ((integer01 %= divider) == (integer02 %= divider)){
@@ -20,14 +20,15 @@
 
 //物件寫法
 export function areRemainderEqual(integer01,integer02){
-    let number01 = integer01;
-    let number02 = integer02;
+    // let number01 = integer01;
+    // let number02 = integer02;
+    let divisor = 3;
     let divisionPair = {
-        divisor : 3,
+        divisor : divisor,
         dividend01 : integer01,
         dividend02 : integer02,
-        remainder01 : number01 %= divisionPair.divisor,
-        remainder02 : number02 %= divisionPair.divisor
+        remainder01 : integer01 %= divisor,
+        remainder02 : integer02 %= divisor
     }
     let divideResult = (divisionPair.remainder01 === divisionPair.remainder02) ? "餘式相同" : "餘式不同";
     return divideResult;

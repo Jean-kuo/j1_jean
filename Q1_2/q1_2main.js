@@ -3,7 +3,7 @@
 
 //重點糾錯:ab全域變數宣告,function執行順序,a=Number()寫法注意
 
-import {dividedby3} from "./1_2module.js"
+import {areRemainderEqual} from "./1_2module.js"
 import {isValidInteger} from "../common_modules/isInteger.js";
 import readline from 'readline';
 
@@ -20,25 +20,25 @@ console.log("請輸入兩個整數");
     q1.question("整數一:",function (integer01) {
         if (isValidInteger(integer01)){
 
-            var integerA=Number(integer01);
+            //let integerA = Number(integer01);
 
             q2.question("整數二:",function (integer02) {
 
                 if (isValidInteger(integer02)){
-                    var integerB = Number(integer02);
-                    const dividedResult = dividedby3(integerA, integerB);
+                    //var integerB = Number(integer02);
+                    const dividedResult = areRemainderEqual(integer01, integer02);
                     console.log(dividedResult);    
                     read.close();
                 }
                 else{
-                    console.log("整數二請輸入數字!");
+                    console.log("整數二請輸入數字");
                     read.close();
                 }
             })
         
         }
         else{
-            console.log("整數一請輸入數字!");
+            console.log("整數一請輸入數字");
             read.close();
         }
     })

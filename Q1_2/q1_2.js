@@ -1,4 +1,4 @@
-import {areRemainderEqual, test, readLineInteger1, readLineInteger2} from './1_2module.js';
+import {areRemainderEqual, readLineInteger1, readLineInteger2} from './1_2module.js';
 import {isValidInteger} from '../common_modules/isInteger.js';
 
 import readline from 'readline';
@@ -8,7 +8,7 @@ const read=readline.createInterface({
 });
 
 
-//單純promise包住readline
+
 function inputInteger() {
     return new Promise ((resolve, reject) => {
         read.question("輸入整數一:",  function(integer01){
@@ -16,13 +16,17 @@ function inputInteger() {
                 resolve(integer01);
             }
             else{
-                let error = "不是整數，請重新輸入";
-                reject(error);
+                reject(new Error("不是整數，請重新輸入"));
             }
 
         })
     })
 };
+
+
+
+
+
 
 
 
