@@ -5,7 +5,7 @@
 
 //問題1.輸出名字中單數位置的字母
 //問題2.陣列的單數?還是人類的單數?
-import {isLetters} from "../common_modules/isLetters.js";
+
 import {getSplitName, userInput} from './1_6module.js';
 
 
@@ -17,20 +17,6 @@ const read = readline.createInterface({
 
 let name = [];
 
-
-// function userInput(query){
-//     return new Promise((resolve, reject) => {
-//         read.question(query, answer => {
-//             //驗正是否英文字母
-//             if (isLetters(answer)) {
-//                 resolve(answer)
-//             }
-//             else{
-//                 reject("請輸入英文名字")
-//             }
-//         });
-//     });
-// };
 async function pushName(){
     let number = 1;
     while (number <= 4){
