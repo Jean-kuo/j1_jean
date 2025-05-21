@@ -21,7 +21,7 @@ q1.question("整數一:",questionQ1("整數一:"))
 function questionQ1(title) {
     return function (integer01) {
         if (isValidInteger(integer01)) {
-            callback1(integer01);
+            q2.question("整數二:", questionQ2("整數二:",integer01));
         }
         else {
             console.log("請輸入數字");
@@ -32,7 +32,9 @@ function questionQ1(title) {
 function questionQ2(title,integer01) {
     return function (integer02) {
         if (isValidInteger(integer02)) {
-            callback2(integer01, integer02);
+            const dividedResult = areRemainderEqual([integer01, integer02]);
+            console.log(dividedResult);
+            read.close();
         }
         else {
             console.log("請輸入數字");
@@ -42,12 +44,4 @@ function questionQ2(title,integer01) {
 }
 
 
-function callback1(integer01) {
-    q2.question("整數二:", questionQ2("整數二:",integer01));
-}
-function callback2(integer01, integer02) {
-    const dividedResult = areRemainderEqual(integer01, integer02);
-    console.log(dividedResult);
-    read.close();
-}
 
