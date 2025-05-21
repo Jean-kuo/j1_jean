@@ -16,29 +16,38 @@ var q1=read;
 var q2=read;
 
 console.log("請輸入兩個整數");
+q1.question("整數一:",questionQ1("整數一:"))
 
-    q1.question("整數一:",function (integer01) {
-        if (isValidInteger(integer01)){
-
-            //let integerA = Number(integer01);
-
-            q2.question("整數二:",function (integer02) {
-
-                if (isValidInteger(integer02)){
-                    //var integerB = Number(integer02);
-                    const dividedResult = areRemainderEqual(integer01, integer02);
-                    console.log(dividedResult);    
-                    read.close();
-                }
-                else{
-                    console.log("整數二請輸入數字");
-                    read.close();
-                }
-            })
-        
+function questionQ1(title) {
+    return function (integer01) {
+        if (isValidInteger(integer01)) {
+            callback1(integer01);
         }
-        else{
-            console.log("整數一請輸入數字");
-            read.close();
+        else {
+            console.log("請輸入數字");
+            q1.question(title,questionQ1(title));
         }
-    })
+    };
+}
+function questionQ2(title,integer01) {
+    return function (integer02) {
+        if (isValidInteger(integer02)) {
+            callback2(integer01, integer02);
+        }
+        else {
+            console.log("請輸入數字");
+            q2.question(title, questionQ2(title,integer01));
+        }
+    };
+}
+
+
+function callback1(integer01) {
+    q2.question("整數二:", questionQ2("整數二:",integer01));
+}
+function callback2(integer01, integer02) {
+    const dividedResult = areRemainderEqual(integer01, integer02);
+    console.log(dividedResult);
+    read.close();
+}
+
